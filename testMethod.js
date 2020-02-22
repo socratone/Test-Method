@@ -7,7 +7,6 @@ for(let i = 0; i < rtrnValue.length; i++) {
     rtrnValue[i].style.color = 'blue';
 }
 
-
 // 변수에 할당된 버튼을 클릭했을 때 호출되는 함수를 정의한다.
 clickButton.onclick = function() {
     let argBox = document.getElementsByClassName('argumentsBox');
@@ -20,11 +19,11 @@ clickButton.onclick = function() {
         for(let j = 0; j < argsArr.length; j++) {
             if(Number(argsArr[j])) {
                 argsArr[j] = Number(argsArr[j]);
-                
             } 
         }
-        let rtrnBoxVar = rtrnBox[i].value;
+        
         // rtrnBox[i]의 value가 숫자로만 돼 있을 때 숫자로 변환한다.
+        let rtrnBoxVar = rtrnBox[i].value;
         if(Number(rtrnBoxVar)) {
             rtrnBoxVar = Number(rtrnBoxVar);
         }
