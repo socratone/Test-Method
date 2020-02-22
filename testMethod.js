@@ -1,6 +1,4 @@
-// 위 버튼의 참조값을 변수에 할당한다.
-let clickButton = document.querySelector('#clickButton');
-
+// rtrnValue 값을 undefined로 초기화 한다.
 let rtrnValue = document.getElementsByClassName('returnValue');
 for(let i = 0; i < rtrnValue.length; i++) {
     rtrnValue[i].innerHTML = 'undefined';
@@ -8,13 +6,16 @@ for(let i = 0; i < rtrnValue.length; i++) {
 }
 
 // 변수에 할당된 버튼을 클릭했을 때 호출되는 함수를 정의한다.
+let clickButton = document.querySelector('#clickButton');
 clickButton.onclick = function() {
     let argBox = document.getElementsByClassName('argumentsBox');
     let rtrnBox = document.getElementsByClassName('returnBox');
     let trueFalse = document.getElementsByClassName('trueFalse');
     
     for(let i = 0; i < argBox.length; i++) {
-        let argsArr = argBox[i].value.split(',');
+        // argBox에 입력한 값을 배열로 바꾼다.
+        let argsArr = argBox[i].value.split(','); 
+        
         // argsArr[j]의 value가 숫자로만 돼 있을 때 숫자로 변환한다.
         for(let j = 0; j < argsArr.length; j++) {
             if(Number(argsArr[j])) {
