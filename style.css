@@ -1,0 +1,35 @@
+span {
+    margin: 2px;
+    /* border: darkgray solid 1px; */
+}
+.line {
+    display: flex;
+    flex-direction: row;
+    margin-top: 3px;
+}
+.line span {
+    flex: 1;
+    font-size: 12px;
+    text-align: center; 
+}
+input {
+    width: 84px;
+    font-size: 12px;
+}
+#parent {
+    width: 500px;
+}
+#clickButton {
+    /* margin-top: 10px; */
+    width: 490px;
+}
+.methodFront {
+    width: 40px; 
+}
+.memoBox {
+    background-color: rgb(230, 230, 230);
+}
+/* * {
+    border: black solid 1px;   
+    padding: 1px;
+} */
