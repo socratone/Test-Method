@@ -34,9 +34,16 @@ clickButton.onclick = function() {
             rtrnValue[i].innerHTML = 'undefined';
             rtrnValue[i].style.color = 'blue';
         } else {
-            rtrnValue[i].innerHTML = func.apply(null, argsArr);
+            if(typeof func.apply(null, argsArr) === 'string') { // string인 경우
+                rtrnValue[i].innerHTML = '\"' + func.apply(null, argsArr) + '\"';
+            } else {
+                rtrnValue[i].innerHTML = func.apply(null, argsArr);
+            }
+            
             rtrnValue[i].style.color = 'black';
         }
+
+        
 
         // 합격과 불합격을 판단해서 보여준다.
         
