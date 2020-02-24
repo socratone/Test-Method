@@ -120,7 +120,7 @@ let trueFalse1 = localStorage.getItem('#trueFalse1') ? JSON.parse(localStorage.g
 $('#trueFalse1').text(trueFalse1);
 // 합격이면 파랑, 불합격이면 빨강
 if(trueFalse1 === '합격') {
-    $('#trueFalse1').css('color', 'blue');
+    $('#trueFalse1').css('color', 'green');
 } else if(trueFalse1 === '불합격') {
     $('#trueFalse1').css('color', 'red');
 }
@@ -128,7 +128,7 @@ if(trueFalse1 === '합격') {
 function setTrueOrFalse() {
     localStorage.setItem('#trueFalse1', JSON.stringify($('#trueFalse1').text()));
     if($('#trueFalse1').text() === '합격') {
-        $('#trueFalse1').css('color', 'blue');
+        $('#trueFalse1').css('color', 'green');
     } else if($('#trueFalse1').text() === '불합격') {
         $('#trueFalse1').css('color', 'red');
     }
