@@ -5,7 +5,7 @@ for(let i = 0; i < rtrnValue.length; i++) {
     rtrnValue[i].style.color = 'blue';
 }
 
-// 변수에 할당된 버튼을 클릭했을 때 호출되는 함수를 정의한다.
+//// 변수에 할당된 버튼을 클릭했을 때 호출되는 함수
 let clickButton = document.querySelector('#clickButton');
 clickButton.onclick = function() {
     let argBox = document.getElementsByClassName('argumentsBox');
@@ -43,9 +43,7 @@ clickButton.onclick = function() {
             rtrnValue[i].style.color = 'black';
         }
 
-        
-
-        // 합격과 불합격을 판단해서 보여준다.
+        //// 합격과 불합격을 판단해서 보여준다.
         
         // 입력하지 않았을 때
         if(argBox[i].value === '' || rtrnBox[i].value === '') {
@@ -64,4 +62,16 @@ clickButton.onclick = function() {
     }
 }
 
+//// 임시 저장소에 입력하는 메소드
 
+// locaStorage에 값이 들었다면 parse해서 argumentsBox1에 넣어주고, 없다면 빈 string을 넣어준다.
+let argumentsBox1 = localStorage.getItem('#1_argumentsBox') ? JSON.parse(localStorage.getItem('#1_argumentsBox')) : ''; // [] => '' 바꿈
+
+// argumentsBox1 값을 input text에 넣어준다.
+$('#1_argumentsBox').attr('value', argumentsBox1);
+
+// 글자를 입력할 때마다 호출하는 메소드
+$('#1_argumentsBox').keyup(function() {
+    let result = $('#1_argumentsBox').val();
+    localStorage.setItem('#1_argumentsBox', JSON.stringify(result)); 
+});
