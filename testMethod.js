@@ -36,11 +36,16 @@ clickButton.onclick = function() {
         } else {
             if(typeof func.apply(null, argsArr) === 'string') { // string인 경우
                 rtrnValue[i].innerHTML = '\"' + func.apply(null, argsArr) + '\"';
+                rtrnValue[i].style.color = 'black';
+            } else if(func.apply(null, argsArr) === undefined) {
+                rtrnValue[i].innerHTML = 'undefined';
+                rtrnValue[i].style.color = 'blue';
             } else {
                 rtrnValue[i].innerHTML = func.apply(null, argsArr);
+                rtrnValue[i].style.color = 'black';
             }
             
-            rtrnValue[i].style.color = 'black';
+            
         }
 
         //// 합격과 불합격을 판단해서 보여준다.
@@ -96,7 +101,7 @@ $('#argumentsBox1').keyup(function() {
 // locaStorage에 값이 들었다면 parse해서 returnValue1에 넣어주고, 없다면 빈 'undefined'를 넣어준다.
 let returnValue1 = localStorage.getItem('#returnValue1') ? JSON.parse(localStorage.getItem('#returnValue1')) : 'undefined'; // [] => '' 바꿈
 // undefined가 아니면 검정색으로
-if(localStorage.getItem('#returnValue1') !== undefined) { $('#returnValue1').css('color', 'black'); }
+if(returnValue1 !== 'undefined') { $('#returnValue1').css('color', 'black'); }
 // returnValue1 값을 returnValue1 엘리먼트 안에 넣어준다.
 $('#returnValue1').text(returnValue1);
 // 테스트 버튼을 누를 때마다 저장
@@ -169,7 +174,7 @@ $('#argumentsBox2').keyup(function() {
 // locaStorage에 값이 들었다면 parse해서 returnValue2에 넣어주고, 없다면 빈 'undefined'를 넣어준다.
 let returnValue2 = localStorage.getItem('#returnValue2') ? JSON.parse(localStorage.getItem('#returnValue2')) : 'undefined'; // [] => '' 바꿈
 // undefined가 아니면 검정색으로
-if(localStorage.getItem('#returnValue2') !== undefined) { $('#returnValue2').css('color', 'black'); }
+if(returnValue2 !== 'undefined') { $('#returnValue2').css('color', 'black'); }
 // returnValue2 값을 returnValue2 엘리먼트 안에 넣어준다.
 $('#returnValue2').text(returnValue2);
 // 테스트 버튼을 누를 때마다 저장
@@ -236,7 +241,7 @@ $('#argumentsBox3').keyup(function() {
 // locaStorage에 값이 들었다면 parse해서 returnValue3에 넣어주고, 없다면 빈 'undefined'를 넣어준다.
 let returnValue3 = localStorage.getItem('#returnValue3') ? JSON.parse(localStorage.getItem('#returnValue3')) : 'undefined'; // [] => '' 바꿈
 // undefined가 아니면 검정색으로
-if(localStorage.getItem('#returnValue3') !== undefined) { $('#returnValue3').css('color', 'black'); }
+if(returnValue3 !== 'undefined') { $('#returnValue3').css('color', 'black'); }
 // returnValue3 값을 returnValue3 엘리먼트 안에 넣어준다.
 $('#returnValue3').text(returnValue3);
 // 테스트 버튼을 누를 때마다 저장
