@@ -60,6 +60,9 @@ clickButton.onclick = function() {
             trueFalse[i].append('불합격');
         }
     }
+
+    setTrueOrFalse();
+
 }
 
 //// 임시 저장소에 입력하는 메소드
@@ -76,7 +79,7 @@ $('#argumentsBox1').keyup(function() {
 });
 
 //// 리턴값
-// locaStorage에 값이 들었다면 parse해서 returnValue1에 넣어주고, 없다면 빈 string을 넣어준다.
+// locaStorage에 값이 들었다면 parse해서 returnValue1에 넣어주고, 없다면 빈 'undefined'를 넣어준다.
 let returnValue1 = localStorage.getItem('#returnValue1') ? JSON.parse(localStorage.getItem('#returnValue1')) : 'undefined'; // [] => '' 바꿈
 // undefined가 아니면 검정색으로
 if(localStorage.getItem('#returnValue1')) { $('#returnValue1').css('color', 'black'); }
@@ -84,12 +87,39 @@ if(localStorage.getItem('#returnValue1')) { $('#returnValue1').css('color', 'bla
 $('#returnValue1').text(returnValue1);
 // 테스트 버튼을 누를 때마다 저장
 $('#clickButton').click(function() {
-    console.log('클릭했습니다.', 'returnValue1 : ', returnValue1)
     localStorage.setItem('#returnValue1', JSON.stringify($('#returnValue1').text()));
 });
 
-// // 글자를 입력할 때마다 호출하는 메소드
-// $('#returnValue1').keyup(function() {
-//     let result = $('#returnValue1').val();
-//     localStorage.setItem('#returnValue1', JSON.stringify(result)); 
-// });
+//// 예상 리턴값 returnBox1
+// locaStorage에 값이 들었다면 parse해서 returnBox1에 넣어주고, 없다면 빈 string을 넣어준다.
+let returnBox1 = localStorage.getItem('#returnBox1') ? JSON.parse(localStorage.getItem('#returnBox1')) : ''; // [] => '' 바꿈
+// returnBox1 값을 input text에 넣어준다.
+$('#returnBox1').attr('value', returnBox1);
+// 글자를 입력할 때마다 호출하는 메소드
+$('#returnBox1').keyup(function() {
+    let result = $('#returnBox1').val();
+    localStorage.setItem('#returnBox1', JSON.stringify(result)); 
+});
+
+//// 합격 여부
+// locaStorage에 값이 들었다면 parse해서 trueFalse1에 넣어주고, 없다면 빈 string을 넣어준다.
+let trueFalse1 = localStorage.getItem('#trueFalse1') ? JSON.parse(localStorage.getItem('#trueFalse1')) : ''; 
+// trueFalse1 값을 trueFalse1 엘리먼트 안에 넣어준다.
+$('#trueFalse1').text(trueFalse1);
+// 합격이면 파랑, 불합격이면 빨강
+if(trueFalse1 === '합격') {
+    $('#trueFalse1').css('color', 'blue');
+} else if(trueFalse1 === '불합격') {
+    $('#trueFalse1').css('color', 'red');
+}
+// 테스트 버튼을 누를 때마다 저장, 클릭 버튼을 눌렀을 때 제일 마지막에 호출
+function setTrueOrFalse() {
+    localStorage.setItem('#trueFalse1', JSON.stringify($('#trueFalse1').text()));
+    if($('#trueFalse1').text() === '합격') {
+        $('#trueFalse1').css('color', 'blue');
+    } else if($('#trueFalse1').text() === '불합격') {
+        $('#trueFalse1').css('color', 'red');
+    }
+}
+    
+        
