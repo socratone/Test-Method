@@ -65,13 +65,13 @@ clickButton.onclick = function() {
 //// 임시 저장소에 입력하는 메소드
 
 // locaStorage에 값이 들었다면 parse해서 argumentsBox1에 넣어주고, 없다면 빈 string을 넣어준다.
-let argumentsBox1 = localStorage.getItem('#1_argumentsBox') ? JSON.parse(localStorage.getItem('#1_argumentsBox')) : ''; // [] => '' 바꿈
+let argumentsBox1 = localStorage.getItem('#argumentsBox1') ? JSON.parse(localStorage.getItem('#argumentsBox1')) : ''; // [] => '' 바꿈
 
 // argumentsBox1 값을 input text에 넣어준다.
-$('#1_argumentsBox').attr('value', argumentsBox1);
+$('#argumentsBox1').attr('value', argumentsBox1);
 
 // 글자를 입력할 때마다 호출하는 메소드
-$('#1_argumentsBox').keyup(function() {
-    let result = $('#1_argumentsBox').val();
-    localStorage.setItem('#1_argumentsBox', JSON.stringify(result)); 
+$('#argumentsBox1').keyup(function() {
+    let result = $('#argumentsBox1').val();
+    localStorage.setItem('#argumentsBox1', JSON.stringify(result)); 
 });
