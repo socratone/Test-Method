@@ -67,6 +67,18 @@ clickButton.onclick = function() {
 
 //// 임시 저장소에 입력하는 메소드
 
+//// 메모
+// locaStorage에 값이 들었다면 parse해서 memoBox1에 넣어주고, 없다면 빈 string을 넣어준다.
+let memoBox1 = localStorage.getItem('#memoBox1') ? JSON.parse(localStorage.getItem('#memoBox1')) : ''; // [] => '' 바꿈
+// memoBox1 값을 input text에 넣어준다.
+$('#memoBox1').attr('value', memoBox1);
+// 글자를 입력할 때마다 저장한다.
+$('#memoBox1').keyup(function() {
+    let result = $('#memoBox1').val();
+    localStorage.setItem('#memoBox1', JSON.stringify(result)); 
+});
+
+
 //// 실험값
 // locaStorage에 값이 들었다면 parse해서 argumentsBox1에 넣어주고, 없다면 빈 string을 넣어준다.
 let argumentsBox1 = localStorage.getItem('#argumentsBox1') ? JSON.parse(localStorage.getItem('#argumentsBox1')) : ''; // [] => '' 바꿈
