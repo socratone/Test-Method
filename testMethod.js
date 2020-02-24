@@ -1,4 +1,4 @@
-// rtrnValue 값을 undefined로 초기화 한다.
+// rtrnValue 값을 undefined로 초기화한다.
 let rtrnValue = document.getElementsByClassName('returnValue');
 for(let i = 0; i < rtrnValue.length; i++) {
     rtrnValue[i].innerHTML = 'undefined';
@@ -64,14 +64,32 @@ clickButton.onclick = function() {
 
 //// 임시 저장소에 입력하는 메소드
 
+//// 실험값
 // locaStorage에 값이 들었다면 parse해서 argumentsBox1에 넣어주고, 없다면 빈 string을 넣어준다.
 let argumentsBox1 = localStorage.getItem('#argumentsBox1') ? JSON.parse(localStorage.getItem('#argumentsBox1')) : ''; // [] => '' 바꿈
-
 // argumentsBox1 값을 input text에 넣어준다.
 $('#argumentsBox1').attr('value', argumentsBox1);
-
 // 글자를 입력할 때마다 호출하는 메소드
 $('#argumentsBox1').keyup(function() {
     let result = $('#argumentsBox1').val();
     localStorage.setItem('#argumentsBox1', JSON.stringify(result)); 
 });
+
+//// 리턴값
+// locaStorage에 값이 들었다면 parse해서 returnValue1에 넣어주고, 없다면 빈 string을 넣어준다.
+let returnValue1 = localStorage.getItem('#returnValue1') ? JSON.parse(localStorage.getItem('#returnValue1')) : 'undefined'; // [] => '' 바꿈
+// undefined가 아니면 검정색으로
+if(localStorage.getItem('#returnValue1')) { $('#returnValue1').css('color', 'black'); }
+// returnValue1 값을 returnValue1 엘리먼트 안에 넣어준다.
+$('#returnValue1').text(returnValue1);
+// 테스트 버튼을 누를 때마다 저장
+$('#clickButton').click(function() {
+    console.log('클릭했습니다.', 'returnValue1 : ', returnValue1)
+    localStorage.setItem('#returnValue1', JSON.stringify($('#returnValue1').text()));
+});
+
+// // 글자를 입력할 때마다 호출하는 메소드
+// $('#returnValue1').keyup(function() {
+//     let result = $('#returnValue1').val();
+//     localStorage.setItem('#returnValue1', JSON.stringify(result)); 
+// });
