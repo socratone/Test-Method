@@ -5,6 +5,13 @@ for(let i = 0; i < rtrnValue.length; i++) {
     rtrnValue[i].style.color = 'blue';
 }
 
+//// clear 버튼
+let clearButton = document.querySelector('#clearButton');
+clearButton.onclick = function() {
+    localStorage.clear();
+    location.reload();
+}
+
 //// 변수에 할당된 버튼을 클릭했을 때 호출되는 함수
 let clickButton = document.querySelector('#clickButton');
 clickButton.onclick = function() {
