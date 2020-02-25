@@ -1,7 +1,12 @@
-span {
+#parent {
+    width: 1000px;
+}
+#parent div {
+    height: 50px;
+}
+span, input {
+    padding: 1px;
     margin: 2px;
-    font-size: 12px;
-    /* border: darkgray solid 1px; */
 }
 .line {
     display: flex;
@@ -9,36 +14,22 @@ span {
     margin-top: 3px;
 }
 .line span {
+    line-height: 50px;
+}
+.line span, .line input {
     flex: 1;
-    font-size: 12px;
+    font-size: 22px;
     text-align: center; 
 }
-input {
-    width: 84px;
-    font-size: 12px;
-}
-#parent {
-    width: 500px;
-}
-#b {
-    display: flex;
-    flex-direction: row;
-}
-#clickButton {
-    flex: 4;
-    /* margin-top: 10px; */
-    /* width: 490px; */
-}
-#clearButton {
-    flex: 1;
-}
-.methodFront {
-    width: 40px; 
+.line input {
+    width: 0px;
 }
 .memoBox {
     background-color: rgb(230, 230, 230);
+    color: rgb(138, 138, 138);
 }
-/* * {
-    border: black solid 1px;   
-    padding: 1px;
-} */
+#clickButton, #clearButton {
+    flex: 1;
+    border: 1px rgb(182, 182, 182) solid;
+    border-radius: 10px;
+}
